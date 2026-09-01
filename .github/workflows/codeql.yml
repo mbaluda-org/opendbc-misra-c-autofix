@@ -84,7 +84,8 @@ jobs:
       if: matrix.build-mode == 'manual'
       shell: bash
       run: |
-        source ./setup.sh    
+        source ./setup.sh 
+        uv pip install scons
         scons
         
         python -m ensurepip --upgrade
