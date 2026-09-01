@@ -84,10 +84,12 @@ jobs:
       if: matrix.build-mode == 'manual'
       shell: bash
       run: |
+        apt-get install scons
+        source ./setup.sh
+        scons
+        
         python -m ensurepip --upgrade
         python -m pip install --upgrade pip
-        python -m pip install scons
-        scons
         python -m pip install -r .github/scripts/requirements.txt
         python .github/scripts/process_coding_standards_config.py
 
