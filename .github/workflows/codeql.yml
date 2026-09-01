@@ -84,7 +84,8 @@ jobs:
       if: matrix.build-mode == 'manual'
       shell: bash
       run: |
-        source ./test.sh 
+        pip3 install -e .[testing]  # install dependencies
+        scons
         
         python -m ensurepip --upgrade
         python -m pip install --upgrade pip
